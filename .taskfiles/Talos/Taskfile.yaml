@@ -76,6 +76,24 @@ tasks:
       - msg: Node not found
         sh: talosctl --nodes {{.node}} get machineconfig >/dev/null 2>&1
 
+  upgrade-force:
+    desc: Upgrade (force) Talos on a node
+    dir: "{{.KUBERNETES_DIR}}/bootstrap/talos"
+    cmds:
+      - talosctl --nodes {{.node}} upgrade --image {{.image}} --wait=true --timeout=10m --preserve=true --reboot-mode={{.mode}} --force
+      - talosctl --nodes {{.node}} health --wait-timeout=10m --server=false
+    vars:
+      mode: '{{.mode | default "default"}}'
+    requires:
+      vars: ["node", "image"]
+    preconditions:
+      - msg: Missing talosconfig
+        sh: test -f {{.TALOSCONFIG_FILE}}
+      - msg: Unable to retrieve Talos config
+        sh: talosctl config info >/dev/null 2>&1
+      - msg: Node not found
+        sh: talosctl --nodes {{.node}} get machineconfig >/dev/null 2>&1
+
   upgrade-k8s:
     desc: Upgrade Kubernetes across the cluster
     dir: "{{.KUBERNETES_DIR}}/bootstrap/talos"
