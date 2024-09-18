@@ -14,6 +14,11 @@ repositories:
   - name: postfinance
     url: https://postfinance.github.io/kubelet-csr-approver
 
+# Due to controlplane on SBC, when bootstrapping talos etcd consistently times
+# out when installing cilium, which causes helm to error out. Once the cluster stabilizes,
+# you can comment out the prom and cilium releases and the needs sections of the remaining
+# releases. Afterwards, run task talos:install-helm-apps again and it should succeed. Then
+# you can continue with the bootstrapping process.
 releases:
   - name: prometheus-operator-crds
     namespace: observability
