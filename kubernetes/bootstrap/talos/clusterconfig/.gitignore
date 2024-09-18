@@ -1,0 +1,5 @@
+home-cluster-talos-master-1.yaml
+home-cluster-talos-master-2.yaml
+home-cluster-talos-master-3.yaml
+home-cluster-talos-worker-nuc.yaml
+talosconfig

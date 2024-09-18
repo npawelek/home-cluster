@@ -75,7 +75,7 @@ nodes:
   - hostname: "talos-worker-nuc"
     ipAddress: "192.168.0.31"
     installDisk: "/dev/sdb"
-    talosImageURL: factory.talos.dev/installer/ea908eea5860fff40abc4258731b40c8697e6582e08b56ce6c1cfd08630f80b7
+    talosImageURL: factory.talos.dev/installer/de7663a7e7c4799c95b38777bad77928cf264ed859ed07bb2faf3c62a84aee6b
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
@@ -119,4 +119,3 @@ controlPlane:
     - "@./patches/controller/cluster.yaml"
     - "@./patches/controller/disable-admission-controller.yaml"
     - "@./patches/controller/etcd.yaml"
-
