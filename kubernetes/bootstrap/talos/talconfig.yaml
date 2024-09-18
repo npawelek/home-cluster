@@ -109,7 +109,6 @@ patches:
   - "@./patches/global/disable-search-domain.yaml"
   - "@./patches/global/hostdns.yaml"
   - "@./patches/global/kubelet.yaml"
-  - "@./patches/global/openebs-local.yaml"
   - "@./patches/global/sysctl.yaml"
 
 # Controller patches
@@ -119,3 +118,8 @@ controlPlane:
     - "@./patches/controller/cluster.yaml"
     - "@./patches/controller/disable-admission-controller.yaml"
     - "@./patches/controller/etcd.yaml"
+
+# Worker patches
+worker:
+  patches:
+    - "@./patches/worker/longhorn.yaml"
